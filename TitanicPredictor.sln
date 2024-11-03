@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicPredictor", "TitanicPredictor\TitanicPredictor.csproj", "{2764819A-9D8F-4DBE-BA36-CAF51D6ECE9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicPredictor.MachineLearningAuto", "TitanicPredictor.MachineLearning\TitanicPredictor.MachineLearningAuto.csproj", "{B885E452-127C-4782-9392-B9680606D020}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicPredictor.Tests", "TitanicPredictor.Tests\TitanicPredictor.Tests.csproj", "{18362C88-37D8-4E44-A525-34B96B1C82B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitanicPredictor.MachineLearningManual", "TitanicPredictor.MachineLearningManual\TitanicPredictor.MachineLearningManual.csproj", "{5B656F76-2E49-4C17-9D6D-83E357C8EACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitanicPredictor.Entities", "TitanicPredictor.Entities\TitanicPredictor.Entities.csproj", "{FEACB19D-C9BC-42BE-890F-AFE8EC6E23FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2764819A-9D8F-4DBE-BA36-CAF51D6ECE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2764819A-9D8F-4DBE-BA36-CAF51D6ECE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2764819A-9D8F-4DBE-BA36-CAF51D6ECE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2764819A-9D8F-4DBE-BA36-CAF51D6ECE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B885E452-127C-4782-9392-B9680606D020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B885E452-127C-4782-9392-B9680606D020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B885E452-127C-4782-9392-B9680606D020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B885E452-127C-4782-9392-B9680606D020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18362C88-37D8-4E44-A525-34B96B1C82B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18362C88-37D8-4E44-A525-34B96B1C82B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18362C88-37D8-4E44-A525-34B96B1C82B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18362C88-37D8-4E44-A525-34B96B1C82B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B656F76-2E49-4C17-9D6D-83E357C8EACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B656F76-2E49-4C17-9D6D-83E357C8EACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B656F76-2E49-4C17-9D6D-83E357C8EACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B656F76-2E49-4C17-9D6D-83E357C8EACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEACB19D-C9BC-42BE-890F-AFE8EC6E23FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEACB19D-C9BC-42BE-890F-AFE8EC6E23FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEACB19D-C9BC-42BE-890F-AFE8EC6E23FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEACB19D-C9BC-42BE-890F-AFE8EC6E23FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6330574A-49F6-4C23-9D1D-627B8981B720}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,410 @@
+﻿{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\SimonPainter\\Downloads\\TitanicPredictor\\TitanicPredictor\\TitanicPredictor.Tests\\refineddata-age.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "PassengerId",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Pclass",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Title",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Sex",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Age",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Family",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Fare",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "CabinLetter",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Embarked",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Survived",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Boolean",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.4123222579810667,
+        "RuntimeInSeconds": 0.255,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 13,
+            "NumberOfLeaves": 10,
+            "FeatureFraction": 0.85455865,
+            "LabelColumnName": "Age",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.4123222579810667,
+        "RuntimeInSeconds": 0.278,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 13,
+            "NumberOfLeaves": 11,
+            "FeatureFraction": 0.8549292,
+            "LabelColumnName": "Age",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.40953527330123451,
+        "RuntimeInSeconds": 0.295,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 16,
+            "NumberOfLeaves": 11,
+            "FeatureFraction": 0.840904,
+            "LabelColumnName": "Age",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.40943554510897523,
+        "RuntimeInSeconds": 0.286,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 12,
+            "NumberOfLeaves": 8,
+            "FeatureFraction": 0.8541881,
+            "LabelColumnName": "Age",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.40943554510897523,
+        "RuntimeInSeconds": 0.276,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e4",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 12,
+            "NumberOfLeaves": 9,
+            "FeatureFraction": 0.8528698,
+            "LabelColumnName": "Age",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "FastTreeRegression",
+      "e4": "FastForestRegression",
+      "e5": "LightGbmRegression",
+      "e6": "LbfgsPoissonRegressionRegression",
+      "e7": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7)",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\SimonPainter\\Downloads\\TitanicPredictor\\TitanicPredictor\\TitanicPredictor.MachineLearning\\TitanicAuto-PredictAge.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 60,
+    "LabelColumn": "Age",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

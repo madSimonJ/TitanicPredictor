@@ -1,0 +1,17 @@
+﻿@model TitanicPredictor.Models.PredictionResultModel
+@{
+
+}
+
+@if(Model.YesOrNo)
+{
+    <p class="h2 text-success">You Survived!!!!!!!!!</p>
+    <p class="h3">
+        You can go on to live a rich and fulfilling life back on land, and perhaps any further unnecessary boat trips...
+    </p>
+}
+else
+{
+    <p class="h2 text-danger">I'm sorry....'</p>
+    <p class="h3">I'd say "better luck next time", but, well...</p>
+}

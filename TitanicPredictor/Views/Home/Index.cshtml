@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "Titanic Predictor";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Will you Survive?</h1>
+
+    <select id="frm-cabinTypeSelect" class="form-select" aria-label="Cabin type select">
+        <option selected>Select Cabin Type</option>
+        <option value="1">First</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+    </select>
+    <select id="frm-titleSelect" class="form-select" aria-label="Title select">
+        <option selected>Select Title</option>
+        <option>Mr</option>
+        <option>Mrs</option>
+        <option>Miss</option>
+        <option>Master</option>
+        <option>Dr</option>
+        <option>Military</option>
+        <option>Rare</option>
+    </select>
+    <select id="frm-sexSelect" class="form-select" aria-label="select sex">
+        <option selected>Choose Your Sex (Apologies for restricted choice)</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+    <div class="input-group mb-2">
+        <span class="input-group-text">Age:</span>
+        <input type="number" id="frm-age" class="form-control" placeholder="Enter your age (you don't have to tell the truth!" aria-label="Enter age" id="frmAge" />
+    </div>
+    <select id="frm-familyTravellingWith" class="form-select" aria-label="select number of family travelling with you">
+        <option selected>How many family members are with you?</option>
+        <option value="0">None</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
+        <option value="6">Six</option>
+        <option value="7">Seven</option>
+        <option value="8">Eight</option>
+    </select>
+    <select id="frm-embarked" class="form-select" aria-label="select your port of embarkation">
+        <option selected>Which Port did you embark at?</option>
+        <option value="S">Southampton</option>
+        <option value="C">Cherbourg</option>
+        <option value="Q">Queenstown</option>
+    </select>
+
+    <button type="button" id="btnSubmit"  class="btn btn-primary" disabled>Did you Survive?</button>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(() => {
+
+            const validCabinTypes = [ '1', '2', '3' ]
+            const validTitles = ['Mr', 'Mrs', 'Miss', 'Master', 'Dr', 'Military', 'Rare'];
+            // don't hate me for this!  The source data restricts me to 2 choices!
+            const validSexes = [ 'Male', 'Female' ]
+            const validEmbarked = ['S', 'C', 'Q']
+
+            $("#frm-cabinTypeSelect,#frm-titleSelect,#frm-sexSelect,#frm-age,#frm-familyTravellingWith,#frm-embarked").change(e => {
+
+                const cabin = $("#frm-cabinTypeSelect").val();
+                const title = $("#frm-titleSelect").val();
+                const sex = $("#frm-sexSelect").val();
+                const age = $("#frm-age").val();
+                const family = $("#frm-familyTravellingWith").val();
+                const embarked = $("#frm-embarked").val();
+
+                const parsedAge = _.toNumber(age);
+                const parsedFamily = _.toNumber(family);
+
+                const validatedCabin = _.indexOf(validCabinTypes, cabin) == -1 ? false : true;
+                const validatedTitle = _.indexOf(validTitles, title) == -1 ? false : true;
+                const validatedSex = _.indexOf(validSexes, sex) == -1 ? false : true;
+                const validatedAge = !_.isNaN(parsedAge) && parsedAge >= 0;
+                const validatedFamily = !_.isNaN(parsedFamily) && _.inRange(_.toNumber(family), 0, 8);
+                const validatedEmbarked = _.indexOf(validEmbarked, embarked) == -1 ? false : true;
+
+                const validations = [
+                    validatedCabin,
+                    validatedTitle,
+                    validatedSex,
+                    validatedAge,
+                    validatedFamily,
+                    validatedEmbarked
+                ];
+
+                const allInputsValid = _.reduce(validations, (acc, x) => acc && x);
+                if(allInputsValid) {
+                    $("#btnSubmit").removeAttr('disabled')
+                }
+                else {
+                    $("#btnSubmit").attr("disabled");
+                }
+
+            });
+
+            $("#btnSubmit").click(e => {
+                $("#btnSubmit").attr("disabled");
+
+                const cabin = $("#frm-cabinTypeSelect").val();
+                const title = $("#frm-titleSelect").val();
+                const sex = $("#frm-sexSelect").val();
+                const age = $("#frm-age").val();
+                const family = $("#frm-familyTravellingWith").val();
+                const embarked = $("#frm-embarked").val();
+
+                const parsedAge = _.toNumber(age);
+                const parsedFamily = _.toNumber(family);
+
+                const data = {
+                    Cabin: cabin,
+                    Title: title,
+                    Sex: sex,
+                    Age: age,
+                    Family: family,
+                    Embarked: embarked
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "Prediction/index",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    success: function (result) {
+                        const yesOrNo = result.result;
+                        const url = '@Url.Action("Result", "Home")/' + yesOrNo
+                        window.location.href = url;
+                    },
+                    error: function (result) {
+                        alert('An error occurred!');
+                    }
+                })
+
+            });
+
+        });
+
+    </script>
+}
+

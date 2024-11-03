@@ -1,0 +1,473 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\SimonPainter\\Downloads\\TitanicPredictor\\TitanicPredictor\\TitanicPredictor.Tests\\refineddata-missingcabinlettertraindata.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "PassengerId",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Pclass",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Title",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Sex",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Age",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Family",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Fare",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "CabinLetter",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Embarked",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Survived",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Boolean",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestOva",
+        "Score": 0.42976227058933825,
+        "RuntimeInSeconds": 2.82,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "CabinLetter",
+            "InputColumnName": "CabinLetter",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e5": {
+            "NumberOfTrees": 8,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 0.9524098,
+            "LabelColumnName": "CabinLetter",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.41477843932731151,
+        "RuntimeInSeconds": 11.514,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e6 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "CabinLetter",
+            "InputColumnName": "CabinLetter",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "NumberOfLeaves": 248,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.99999977667298645,
+            "NumberOfTrees": 2036,
+            "SubsampleFraction": 0.99999977667298645,
+            "MaximumBinCountPerFeature": 253,
+            "FeatureFraction": 0.99999999,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.87681575629298025,
+            "LabelColumnName": "CabinLetter",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.40835515918222687,
+        "RuntimeInSeconds": 1.777,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "CabinLetter",
+            "InputColumnName": "CabinLetter",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 22,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 233,
+            "FeatureFraction": 0.99999999,
+            "LearningRate": 0.12386051583306025,
+            "LabelColumnName": "CabinLetter",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.40737835820542589,
+        "RuntimeInSeconds": 2.198,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "CabinLetter",
+            "InputColumnName": "CabinLetter",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e4": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 254,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "CabinLetter",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestOva",
+        "Score": 0.39557536865807547,
+        "RuntimeInSeconds": 1.794,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5 * e11",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e11": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "OutputColumnName": "CabinLetter",
+            "InputColumnName": "CabinLetter",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e5": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "CabinLetter",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "MapValueToKey",
+      "e4": "FastTreeOva",
+      "e5": "FastForestOva",
+      "e6": "LightGbmMulti",
+      "e7": "LbfgsLogisticRegressionOva",
+      "e8": "LbfgsMaximumEntropyMulti",
+      "e9": "SdcaMaximumEntropyMulti",
+      "e10": "SdcaLogisticRegressionOva",
+      "e11": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * (e4 + e5 + e6 + e7 + e8 + e9 + e10) * e11",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "C:\\Users\\SimonPainter\\Downloads\\TitanicPredictor\\TitanicPredictor\\TitanicPredictor.MachineLearning\\TitanicAuto-CabinLetterFilledin.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 120,
+    "LabelColumn": "CabinLetter",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

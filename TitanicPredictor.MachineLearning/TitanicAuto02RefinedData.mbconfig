@@ -1,0 +1,446 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\SimonPainter\\Downloads\\titanic\\titanic\\titanic-code\\refineddata.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "PassengerId",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Pclass",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Title",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Sex",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Age",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Family",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Fare",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "CabinLetter",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Embarked",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Survived",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Boolean",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeBinary",
+        "Score": 0.8341859535799413,
+        "RuntimeInSeconds": 0.733,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 5,
+            "MinimumExampleCountPerLeaf": 27,
+            "NumberOfTrees": 5,
+            "MaximumBinCountPerFeature": 611,
+            "FeatureFraction": 0.88478623174016324,
+            "LearningRate": 0.30122685945272137,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeBinary",
+        "Score": 0.83416456625549562,
+        "RuntimeInSeconds": 0.475,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 15,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 260,
+            "FeatureFraction": 0.99287858215422531,
+            "LearningRate": 0.57664559787625269,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeBinary",
+        "Score": 0.83416456625549562,
+        "RuntimeInSeconds": 0.501,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 15,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 256,
+            "FeatureFraction": 0.99203911908747355,
+            "LearningRate": 0.58364113215106,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeBinary",
+        "Score": 0.83416456625549562,
+        "RuntimeInSeconds": 0.523,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 15,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 261,
+            "FeatureFraction": 0.99385900133810678,
+            "LearningRate": 0.579949451235628,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeBinary",
+        "Score": 0.83416456625549562,
+        "RuntimeInSeconds": 0.705,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ],
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Title",
+              "Sex",
+              "CabinLetter",
+              "Embarked",
+              "Pclass",
+              "Age",
+              "Family",
+              "Fare"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 15,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 260,
+            "FeatureFraction": 0.9930902842026581,
+            "LearningRate": 0.57439117725918676,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "FastTreeBinary",
+      "e4": "LightGbmBinary",
+      "e5": "LbfgsLogisticRegressionBinary",
+      "e6": "SdcaLogisticRegressionBinary",
+      "e7": "FastForestBinary",
+      "e8": "Naive"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7 * e8)",
+    "MetricName": "Accuracy",
+    "ModelFilePath": "C:\\Users\\SimonPainter\\Downloads\\TitanicPredictor\\TitanicPredictor\\TitanicPredictor.MachineLearning\\TitanicAuto02RefinedData.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 300,
+    "LabelColumn": "Survived",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
