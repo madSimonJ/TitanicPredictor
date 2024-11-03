@@ -67,7 +67,7 @@
             const validSexes = [ 'Male', 'Female' ]
             const validEmbarked = ['S', 'C', 'Q']
 
-            $("#frm-cabinTypeSelect,#frm-titleSelect,#frm-sexSelect,#frm-age,#frm-familyTravellingWith,#frm-embarked").change(e => {
+            $("#frm-cabinTypeSelect,#frm-titleSelect,#frm-sexSelect,#frm-age,#frm-familyTravellingWith,#frm-embarked,#frmFare").change(e => {
 
                 const cabin = $("#frm-cabinTypeSelect").val();
                 const title = $("#frm-titleSelect").val();
@@ -84,10 +84,10 @@
                 const validatedCabin = _.indexOf(validCabinTypes, cabin) == -1 ? false : true;
                 const validatedTitle = _.indexOf(validTitles, title) == -1 ? false : true;
                 const validatedSex = _.indexOf(validSexes, sex) == -1 ? false : true;
-                const validatedAge = !_.isNaN(parsedAge) && parsedAge >= 0;
-                const validatedFamily = !_.isNaN(parsedFamily) && _.inRange(parsedFamily, 0, 8);
+                const validatedAge = !_.isNaN(parsedAge) && _.inRange(parsedAge, 0, 121);
+                const validatedFamily = !_.isNaN(parsedFamily) && _.inRange(parsedFamily, 0, 9);
                 const validatedEmbarked = _.indexOf(validEmbarked, embarked) == -1 ? false : true;
-                const validatedFare = !_.isNaN(parsedFare) && _.inRange(parsedFare)
+                const validatedFare = !_.isNaN(parsedFare) && _.inRange(parsedFare, 8, 871)
 
                 const validations = [
                     validatedCabin,
@@ -95,8 +95,19 @@
                     validatedSex,
                     validatedAge,
                     validatedFamily,
-                    validatedEmbarked
+                    validatedEmbarked,
+                    validatedFare
                 ];
+
+                if (parsedFare < 8)
+                    $("#frmFare").val(8);
+                else if(parsedFare > 870)
+                    $("#frmFare").val(870);
+
+                if (parsedAge < 0)
+                    $("#frm-age").val(0);
+                else if(parsedAge > 120)
+                    $("#frm-age").val(120);
 
                 const allInputsValid = _.reduce(validations, (acc, x) => acc && x);
                 if(allInputsValid) {
