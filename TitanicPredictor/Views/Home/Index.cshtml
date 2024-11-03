@@ -28,7 +28,7 @@
     </select>
     <div class="input-group mb-2">
         <span class="input-group-text">Age:</span>
-        <input type="number" id="frm-age" class="form-control" placeholder="Enter your age (you don't have to tell the truth!" aria-label="Enter age" id="frmAge" />
+        <input type="number" id="frm-age" min="0" max="120" class="form-control" placeholder="Enter your age (you don't have to tell the truth!" aria-label="Enter age" />
     </div>
     <select id="frm-familyTravellingWith" class="form-select" aria-label="select number of family travelling with you">
         <option selected>How many family members are with you?</option>
@@ -48,6 +48,10 @@
         <option value="C">Cherbourg</option>
         <option value="Q">Queenstown</option>
     </select>
+    <div class="input-group mb-2">
+        <span class="input-group-text">Fare:</span>
+        <input type="number" min="7" max="870" class="form-control" placeholder="How much did you pay for your ticket (Be honest!)" aria-label="Enter fare" id="frmFare" />
+    </div>
 
     <button type="button" id="btnSubmit"  class="btn btn-primary" disabled>Did you Survive?</button>
 </div>
@@ -71,16 +75,19 @@
                 const age = $("#frm-age").val();
                 const family = $("#frm-familyTravellingWith").val();
                 const embarked = $("#frm-embarked").val();
+                const fare = $("#frmFare").val();
 
                 const parsedAge = _.toNumber(age);
                 const parsedFamily = _.toNumber(family);
+                const parsedFare = _.toNumber(fare);
 
                 const validatedCabin = _.indexOf(validCabinTypes, cabin) == -1 ? false : true;
                 const validatedTitle = _.indexOf(validTitles, title) == -1 ? false : true;
                 const validatedSex = _.indexOf(validSexes, sex) == -1 ? false : true;
                 const validatedAge = !_.isNaN(parsedAge) && parsedAge >= 0;
-                const validatedFamily = !_.isNaN(parsedFamily) && _.inRange(_.toNumber(family), 0, 8);
+                const validatedFamily = !_.isNaN(parsedFamily) && _.inRange(parsedFamily, 0, 8);
                 const validatedEmbarked = _.indexOf(validEmbarked, embarked) == -1 ? false : true;
+                const validatedFare = !_.isNaN(parsedFare) && _.inRange(parsedFare)
 
                 const validations = [
                     validatedCabin,
@@ -110,9 +117,12 @@
                 const age = $("#frm-age").val();
                 const family = $("#frm-familyTravellingWith").val();
                 const embarked = $("#frm-embarked").val();
+                const fare = $("#frmFare").val();
+
 
                 const parsedAge = _.toNumber(age);
                 const parsedFamily = _.toNumber(family);
+                const parsedFare = _.toNumber(fare);
 
                 const data = {
                     Cabin: cabin,
@@ -120,7 +130,8 @@
                     Sex: sex,
                     Age: age,
                     Family: family,
-                    Embarked: embarked
+                    Embarked: embarked,
+                    fare: parsedFare
                 };
 
                 $.ajax({
